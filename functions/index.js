@@ -1,4 +1,5 @@
 const functions = require('firebase-functions');
+const keywordSearch = require('./keyboard-search');
 
 // required for firebase store >> admin sdk allows to interact with firestore and other services. 
 const admin = require("firebase-admin");
@@ -8,6 +9,10 @@ admin.initializeApp();
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
 // http functions
+
+
+exports.jobUpdate = keywordSearch.jobUpdate;
+
 exports.helloWorld = functions.https.onRequest((request, response) => {
     functions.logger.info("Hello logs!", { structuredData: true });
     response.send("Hello from Firebase!");
